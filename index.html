@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Vita Eternus · Legado eterno · Roma Æternum</title>
-    <meta name="description" content="Fusión de tecnología futurista y herencia romana. Crea tu legado audiovisual, elige un guardián digital y trasciende el tiempo con Vita Eternus.">
+    <meta name="description" content="Fusión de tecnología futurista y herencia romana. Crea tu legado audiovisual, elige un guardián digital y trasciende el tiempo con Vita Eternus. Servicios de edición para funerales.">
     <!-- Fuentes: Cinzel (romano) + Inter (moderno) -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -35,13 +35,11 @@
             padding: 0 24px;
         }
 
-        /* Efectos romanos+futuro */
         .roman-pattern {
             background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 2%, transparent 2.5%);
             background-size: 28px 28px;
         }
 
-        /* Header con mármol y neón */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -120,7 +118,7 @@
             box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.5);
         }
 
-        /* Hero con imagen de fondo romana+futurista */
+        /* Hero */
         .hero {
             padding: 100px 0 80px;
             text-align: center;
@@ -139,7 +137,7 @@
             margin: 20px 0 32px;
             font-style: italic;
         }
-        /* secciones */
+
         section {
             padding: 80px 0;
             position: relative;
@@ -159,7 +157,7 @@
             color: #bcae7a;
         }
 
-        /* Tarjetas con fotos y estilo futurista-romano */
+        /* Tarjetas */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -173,7 +171,6 @@
             border: 1px solid rgba(212, 175, 55, 0.4);
             transition: all 0.3s;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
         .feature-card i {
             font-size: 3rem;
@@ -186,7 +183,7 @@
             color: #f7e5b5;
         }
 
-        /* Sección de pasos con imágenes laterales */
+        /* Pasos */
         .steps {
             background: radial-gradient(circle at 20% 30%, #1a1510, #050505);
         }
@@ -219,10 +216,7 @@
             font-family: 'Cinzel';
         }
 
-        /* Galería de fotos / testimonios con imágenes reales */
-        .gallery-testimonials {
-            background: #08080c;
-        }
+        /* Testimonios con fotos */
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -233,33 +227,15 @@
             border-radius: 28px;
             overflow: hidden;
             border: 1px solid #d4af3740;
-            transition: transform 0.2s;
         }
         .testimonial-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
             filter: grayscale(0.2) brightness(0.9);
-            transition: 0.3s;
-        }
-        .testimonial-card:hover .testimonial-img {
-            filter: grayscale(0) brightness(1);
-        }
-        .testimonial-content {
-            padding: 24px;
-        }
-        .testimonial-content i {
-            color: #d4af37;
-            font-size: 1.8rem;
-            opacity: 0.8;
-        }
-        .testimonial-name {
-            font-family: 'Cinzel';
-            margin-top: 12px;
-            color: #ffdfaa;
         }
 
-        /* Planes con estilo futurista y detalles romanos */
+        /* Planes */
         .pricing {
             display: flex;
             flex-wrap: wrap;
@@ -275,13 +251,10 @@
             min-width: 260px;
             text-align: center;
             border: 1px solid #d4af37;
-            box-shadow: 0 20px 30px -12px black;
-            transition: all 0.2s;
         }
         .plan.popular {
             border: 2px solid #ffd966;
             transform: scale(1.02);
-            background: linear-gradient(145deg, #1c1914, #0f0e12);
         }
         .badge {
             background: #d4af37;
@@ -316,38 +289,79 @@
             color: #d4af37;
         }
 
-        /* Acordeón FAQ */
-        .faq-list {
+        /* Modal para grabación de vídeo */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .modal-content {
+            background: #0f111a;
+            border-radius: 48px;
             max-width: 800px;
-            margin: 0 auto;
+            width: 90%;
+            padding: 32px;
+            border: 2px solid #d4af37;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
-        .faq-item {
-            background: #11131b;
-            margin-bottom: 16px;
-            border-radius: 24px;
-            border-left: 4px solid #d4af37;
-        }
-        .faq-question {
-            padding: 20px 24px;
-            font-weight: 600;
-            font-size: 1.1rem;
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 32px;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            color: #f2e3c9;
+            color: #d4af37;
         }
-        .faq-answer {
-            padding: 0 24px;
-            max-height: 0;
+        .video-container {
+            background: #000;
+            border-radius: 24px;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            margin: 20px 0;
+        }
+        video, #recordedVideo {
+            width: 100%;
+            border-radius: 24px;
+        }
+        .cam-controls {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .radio-group {
+            margin: 20px 0;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        input, textarea, select {
+            background: #1e1f2c;
+            border: 1px solid #d4af37;
+            padding: 10px;
+            border-radius: 20px;
+            color: white;
+            width: 100%;
+            margin: 8px 0;
+        }
+        .small-text {
+            font-size: 0.8rem;
             color: #bcae7a;
         }
-        .faq-item.active .faq-answer {
-            padding: 0 24px 20px 24px;
-            max-height: 300px;
-        }
-
         footer {
             background: #030405;
             border-top: 2px solid #d4af37;
@@ -359,23 +373,22 @@
             justify-content: space-between;
             gap: 40px;
         }
-        .footer-col a {
-            color: #d4af37;
-            text-decoration: none;
-        }
         .copyright {
             text-align: center;
             padding-top: 28px;
             border-top: 1px solid #2a241a;
             font-size: 0.8rem;
         }
-
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .navbar { flex-direction: column; }
         }
-        .glow-text {
-            text-shadow: 0 0 6px #ffb347;
+        .warning-note {
+            background: #1f1b10;
+            padding: 16px;
+            border-left: 4px solid #d4af37;
+            margin: 20px 0;
+            border-radius: 16px;
         }
     </style>
 </head>
@@ -387,8 +400,8 @@
                 <ul class="nav-links">
                     <li><a href="#inicio">INICIO</a></li>
                     <li><a href="#como-funciona">VÍA ROMANA</a></li>
+                    <li><a href="#servicios-edicion">EDICIÓN</a></li>
                     <li><a href="#planes">PLANES</a></li>
-                    <li><a href="#memoria">TESTIMONIOS</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
                 <a href="#planes" class="btn btn-outline">CREAR LEGADO</a>
@@ -404,12 +417,12 @@
                 <p style="max-width: 700px; margin: 0 auto 32px; color:#d6c69e;">Graba vídeos, escribe cartas, elige un Guardián Digital. Cuando partas, tu legado se activará como un mensaje desde el futuro hacia tus seres queridos.</p>
                 <div class="hero-buttons">
                     <a href="#planes" class="btn">EMPEZAR AHORA <i class="fas fa-arrow-right"></i></a>
-                    <a href="#como-funciona" class="btn btn-outline">DESCUBRIR EL RITO</a>
+                    <button class="btn btn-outline" id="openModalBtn" style="background:transparent;">🎥 GRABAR VÍDEO LEGADO</button>
                 </div>
             </div>
         </section>
 
-        <!-- Características con mix tecnológico+romano -->
+        <!-- Características -->
         <div class="container">
             <div class="features-grid">
                 <div class="feature-card">
@@ -435,7 +448,37 @@
             </div>
         </div>
 
-        <!-- Cómo funciona + fotos de proceso -->
+        <!-- Servicios de edición de vídeo/audio para funerales -->
+        <section id="servicios-edicion" style="background: #0b0d12;">
+            <div class="container">
+                <h2 class="section-title">EDICIÓN FÚNEBRE · HONOR A LA MEMORIA</h2>
+                <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px,1fr));">
+                    <div class="feature-card">
+                        <i class="fas fa-film"></i>
+                        <h3>Montaje de Vídeo Funerario</h3>
+                        <p>Transformamos tus fotos y vídeos familiares en un homenaje cinematográfico. Música, transiciones y narración.</p>
+                        <span class="small-text">Desde 49€</span>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-microphone-alt"></i>
+                        <h3>Restauración de Audio</h3>
+                        <p>Limpieza y masterización de grabaciones de voz del difunto. Perfecto para ceremonias.</p>
+                        <span class="small-text">Desde 29€</span>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-magic"></i>
+                        <h3>Memorial IA + Roma</h3>
+                        <p>Mezclamos inteligencia artificial con estética romana para crear un legado único en 4K.</p>
+                        <span class="small-text">Consultar</span>
+                    </div>
+                </div>
+                <div class="warning-note" style="margin-top: 30px;">
+                    <i class="fas fa-heartbeat"></i> <strong>Permanencia eterna:</strong> Cuando el usuario ya no esté entre nosotros, el servicio puede mantenerse activo de forma permanente gracias a la aportación voluntaria de sus allegados (familiares o amigos). Ellos pueden continuar la suscripción anual para que el legado digital nunca se apague.
+                </div>
+            </div>
+        </section>
+
+        <!-- Pasos (igual) -->
         <section id="como-funciona" class="steps">
             <div class="container">
                 <h2 class="section-title">VÍA ROMANA HACIA LA ETERNIDAD</h2>
@@ -445,36 +488,35 @@
                     <div class="step"><div class="step-number">III</div><h3>CVSTOS</h3><p>Nombra a tu guardián de confianza (un familiar o amigo).</p></div>
                     <div class="step"><div class="step-number">IV</div><h3>TRĀNSITVS</h3><p>Al momento de tu partida, Vita Æternus libera tu legado.</p></div>
                 </div>
-                <p style="text-align: center; margin-top: 48px; font-size: 0.9rem;"><i class="fas fa-glasses"></i> "Sic transit gloria mundi, pero tu historia permanece"</p>
             </div>
         </section>
 
-        <!-- Testimonios con fotografías reales (imágenes de personas) -->
-        <section id="memoria" class="gallery-testimonials">
+        <!-- Testimonios con fotos -->
+        <section>
             <div class="container">
                 <h2 class="section-title">QVOD PERPETVVM · Voces que ya trascienden</h2>
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
                         <img class="testimonial-img" src="https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=600" alt="mujer romana moderna">
-                        <div class="testimonial-content">
+                        <div class="testimonial-content" style="padding:24px">
                             <i class="fas fa-quote-right"></i>
-                            <p>"Saber que mi hijo podrá recibir mis vídeos cuando sea adulto me da una paz insólita. La mezcla de futuro y tradición es única."</p>
+                            <p>"Saber que mi hijo podrá recibir mis vídeos cuando sea adulto me da una paz insólita."</p>
                             <h4 class="testimonial-name">— Livia M.</h4>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <img class="testimonial-img" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hombre mayor sonriendo">
-                        <div class="testimonial-content">
+                        <img class="testimonial-img" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hombre mayor">
+                        <div class="testimonial-content" style="padding:24px">
                             <i class="fas fa-quote-right"></i>
-                            <p>"Nombré a mi nieta como guardiana digital. Vita Eternus conecta mi pasado romano con la tecnología del mañana."</p>
+                            <p>"Nombré a mi nieta como guardiana digital. La edición de vídeo para mi funeral ya está lista."</p>
                             <h4 class="testimonial-name">— Marcus Aurelio T.</h4>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <img class="testimonial-img" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" alt="pareja abrazándose">
-                        <div class="testimonial-content">
+                        <img class="testimonial-img" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" alt="pareja">
+                        <div class="testimonial-content" style="padding:24px">
                             <i class="fas fa-quote-right"></i>
-                            <p>"La suscripción anual me permite grabar cumpleaños y consejos. Es como construir una cápsula del tiempo con alma de emperador."</p>
+                            <p>"La suscripción anual me permite grabar cumpleaños y consejos. Es como construir una cápsula del tiempo."</p>
                             <h4 class="testimonial-name">— Giulia & Lucius</h4>
                         </div>
                     </div>
@@ -482,14 +524,14 @@
             </div>
         </section>
 
-        <!-- Planes de suscripción (misma lógica) -->
+        <!-- Planes en euros -->
         <section id="planes">
             <div class="container">
-                <h2 class="section-title">ELIGE TY AETERNTAS</h2>
+                <h2 class="section-title">ELIGE TY AETERNTAS · Precios en €</h2>
                 <div class="pricing">
                     <div class="plan">
                         <h3>MENSALIS</h3>
-                        <div class="price">$9.90 <small>/mes</small></div>
+                        <div class="price">9,90 € <small>/mes</small></div>
                         <ul>
                             <li><i class="fas fa-check-circle"></i> 10 vídeos activos</li>
                             <li><i class="fas fa-check-circle"></i> Texto ilimitado</li>
@@ -501,7 +543,7 @@
                     <div class="plan popular">
                         <div class="badge">MÁS VENERADO</div>
                         <h3>ANNVALIS</h3>
-                        <div class="price">$99 <small>/año</small></div>
+                        <div class="price">99 € <small>/año</small></div>
                         <ul>
                             <li><i class="fas fa-check-circle"></i> 30 vídeos + 4K</li>
                             <li><i class="fas fa-check-circle"></i> Texto + borradores</li>
@@ -513,7 +555,7 @@
                     </div>
                     <div class="plan">
                         <h3>AETERNVS</h3>
-                        <div class="price">$299 <small>único</small></div>
+                        <div class="price">299 € <small>único</small></div>
                         <ul>
                             <li><i class="fas fa-check-circle"></i> Capacidad ilimitada</li>
                             <li><i class="fas fa-check-circle"></i> Sin cuotas perpetuas</li>
@@ -523,39 +565,68 @@
                         <a href="#" class="btn btn-outline" onclick="alertDemo()">Consultar</a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- FAQ (idéntica lógica) -->
-        <section id="faq">
-            <div class="container">
-                <h2 class="section-title">SAPIENTIA · Preguntas frecuentes</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <div class="faq-question">¿Cómo se activa mi legado tras mi muerte? <i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">El guardián que hayas designado deberá enviarnos un certificado de defunción verificado. Nuestro sistema validará la identidad y liberará automáticamente todo tu contenido a los destinatarios que configuraste.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">¿Puedo cambiar de guardián? <i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">Sí, en cualquier momento desde tu área privada. Solo tú tienes el poder de modificar a tu Custos Memoriae.</div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">¿Qué tecnología protege mis vídeos? <i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">Usamos cifrado de grado militar y almacenamiento descentralizado con respaldo en "cripta de datos". Nadie accede hasta la activación póstuma.</div>
-                    </div>
+                <div class="warning-note" style="margin-top: 40px; text-align: center;">
+                    <i class="fas fa-hourglass-half"></i> <strong>Condición importante:</strong> El servicio de suscripción finalizará automáticamente tras <strong>15 días sin obtener el pago</strong> de la cuota correspondiente. En caso de fallecimiento, los allegados pueden asumir el pago para mantener el legado activo para siempre.
                 </div>
             </div>
         </section>
 
-        <section style="padding: 40px 0 80px;">
-            <div class="container" style="text-align: center; background: linear-gradient(135deg, #101016, #19170e); border-radius: 60px; padding: 48px 20px;">
-                <h2 style="font-family: 'Cinzel';">FVTVRVM ROMA · El legado te espera</h2>
-                <p style="margin: 20px auto; max-width: 500px; color:#cbbd8c;">Únete a la revolución eterna. Tus mensajes vivirán por siempre en el cruce entre el pasado imperial y la inteligencia del futuro.</p>
-                <a href="#planes" class="btn" style="background: #d4af37; color:#000;">COMENZAR AHORA</a>
-                <p style="margin-top: 32px;"><i class="fas fa-envelope"></i> contacto@vita-eternus.com</p>
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">SAPIENTIA · Preguntas frecuentes</h2>
+                <div class="faq-list" style="max-width:800px; margin:0 auto">
+                    <div class="faq-item" style="background:#11131b; margin-bottom:16px; border-radius:24px; border-left:4px solid #d4af37; padding:16px 24px;">
+                        <div class="faq-question" style="font-weight:600; cursor:pointer; display:flex; justify-content:space-between;">¿Cómo se activa mi legado tras mi muerte? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer" style="display:none; margin-top:12px;">El guardián designado envía el certificado de defunción, validamos y liberamos el contenido a los destinatarios.</div>
+                    </div>
+                    <div class="faq-item" style="background:#11131b; margin-bottom:16px; border-radius:24px; border-left:4px solid #d4af37; padding:16px 24px;">
+                        <div class="faq-question" style="font-weight:600; cursor:pointer; display:flex; justify-content:space-between;">¿Puedo cambiar de guardián? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer" style="display:none; margin-top:12px;">Sí, en cualquier momento desde tu área privada.</div>
+                    </div>
+                    <div class="faq-item" style="background:#11131b; margin-bottom:16px; border-radius:24px; border-left:4px solid #d4af37; padding:16px 24px;">
+                        <div class="faq-question" style="font-weight:600; cursor:pointer; display:flex; justify-content:space-between;">¿Qué pasa si mis familiares quieren mantener mi legado activo? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer" style="display:none; margin-top:12px;">Ellos pueden asumir la suscripción anual o única para que tu memoria digital permanezca eternamente accesible.</div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <!-- MODAL PARA GRABACIÓN DE VÍDEO CON WEBCAM -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="font-family:'Cinzel'">🎥 Graba tu legado en vídeo</h2>
+            <p>Usa tu cámara web para crear un mensaje eterno. El vídeo se almacenará en nuestra base de datos y podrás decidir quién puede verlo.</p>
+            <div class="video-container">
+                <video id="webcam" autoplay playsinline muted></video>
+                <video id="recordedVideo" style="display:none;" controls></video>
+            </div>
+            <div class="cam-controls">
+                <button id="startCam" class="btn">📷 Iniciar cámara</button>
+                <button id="startRecord" class="btn" disabled>🔴 Grabar (máx 15s)</button>
+                <button id="stopRecord" class="btn btn-outline" disabled>⏹️ Detener</button>
+                <button id="uploadVideo" class="btn" disabled>⬆️ Subir a la base de datos</button>
+            </div>
+            <div>
+                <label><strong>Destinatario / Visibilidad:</strong></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="visibility" value="single" checked> Único usuario (email)</label>
+                    <label><input type="radio" name="visibility" value="group"> Grupo (emails separados por comas)</label>
+                    <label><input type="radio" name="visibility" value="public"> 🌍 Público (todo el mundo)</label>
+                </div>
+                <div id="singleEmailField">
+                    <input type="email" id="targetEmail" placeholder="Email del destinatario único">
+                </div>
+                <div id="groupEmailField" style="display:none;">
+                    <textarea id="groupEmails" rows="2" placeholder="ejemplo1@correo.com, ejemplo2@correo.com"></textarea>
+                </div>
+                <p class="small-text"><i class="fas fa-database"></i> El vídeo se asociará a tu cuenta (demo simulada). En producción se guardaría cifrado.</p>
+            </div>
+            <div id="uploadStatus" class="warning-note" style="margin-top:20px;"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -574,31 +645,134 @@
                 </div>
             </div>
             <div class="copyright">
-                © MMXXV Vita Æternus — In memoriam futurum. Todos los derechos reservados.
+                © MMXXV Vita Æternus — In memoriam futurum. Servicio funerario digital. Tras 15 días sin pago, la suscripción se cancela.
             </div>
         </div>
     </footer>
 
     <script>
-        function alertDemo() {
-            alert("🔮 Vita Æternus: Tu legado romano-digital aguarda. Próximamente podrás suscribirte.");
+        // Demo alerts y modal
+        function alertDemo() { alert("🔮 Vita Æternus: Tu legado romano-digital aguarda. Próximamente podrás suscribirte."); }
+
+        // Modal logic
+        const modal = document.getElementById('videoModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeSpan = document.querySelector('.close-modal');
+        openBtn.onclick = () => { modal.style.display = 'flex'; initCamera(); };
+        closeSpan.onclick = () => { modal.style.display = 'none'; stopAllTracks(); };
+        window.onclick = (e) => { if(e.target === modal) { modal.style.display = 'none'; stopAllTracks(); } };
+
+        // Webcam variables
+        let mediaStream = null;
+        let mediaRecorder = null;
+        let recordedChunks = [];
+        let recordedBlob = null;
+        const webcamVideo = document.getElementById('webcam');
+        const recordedVideo = document.getElementById('recordedVideo');
+        const startCamBtn = document.getElementById('startCam');
+        const startRecordBtn = document.getElementById('startRecord');
+        const stopRecordBtn = document.getElementById('stopRecord');
+        const uploadBtn = document.getElementById('uploadVideo');
+
+        async function initCamera() {
+            if(mediaStream) stopAllTracks();
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                mediaStream = stream;
+                webcamVideo.srcObject = stream;
+                webcamVideo.style.display = 'block';
+                recordedVideo.style.display = 'none';
+                startRecordBtn.disabled = false;
+                startCamBtn.disabled = true;
+                uploadBtn.disabled = true;
+                recordedChunks = [];
+            } catch(err) {
+                alert("Error al acceder a la cámara: " + err.message);
+            }
         }
-        // acordeón FAQ
+        function stopAllTracks() {
+            if(mediaStream) {
+                mediaStream.getTracks().forEach(track => track.stop());
+                mediaStream = null;
+            }
+            if(mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+            webcamVideo.srcObject = null;
+        }
+        startCamBtn.onclick = initCamera;
+
+        startRecordBtn.onclick = () => {
+            if(!mediaStream) return;
+            recordedChunks = [];
+            mediaRecorder = new MediaRecorder(mediaStream);
+            mediaRecorder.ondataavailable = (e) => { if(e.data.size > 0) recordedChunks.push(e.data); };
+            mediaRecorder.onstop = () => {
+                recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
+                const url = URL.createObjectURL(recordedBlob);
+                recordedVideo.src = url;
+                recordedVideo.style.display = 'block';
+                webcamVideo.style.display = 'none';
+                uploadBtn.disabled = false;
+                stopRecordBtn.disabled = true;
+                startRecordBtn.disabled = true;
+            };
+            mediaRecorder.start();
+            startRecordBtn.disabled = true;
+            stopRecordBtn.disabled = false;
+            // stop after 15 seconds max
+            setTimeout(() => { if(mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop(); }, 15000);
+        };
+        stopRecordBtn.onclick = () => { if(mediaRecorder && mediaRecorder.state === 'recording') mediaRecorder.stop(); };
+
+        // Visibilidad campos
+        const radioSingle = document.querySelector('input[value="single"]');
+        const radioGroup = document.querySelector('input[value="group"]');
+        const radioPublic = document.querySelector('input[value="public"]');
+        const singleDiv = document.getElementById('singleEmailField');
+        const groupDiv = document.getElementById('groupEmailField');
+        function updateVisibilityFields() {
+            if(radioSingle.checked) { singleDiv.style.display = 'block'; groupDiv.style.display = 'none'; }
+            else if(radioGroup.checked) { singleDiv.style.display = 'none'; groupDiv.style.display = 'block'; }
+            else { singleDiv.style.display = 'none'; groupDiv.style.display = 'none'; }
+        }
+        radioSingle.onchange = updateVisibilityFields;
+        radioGroup.onchange = updateVisibilityFields;
+        radioPublic.onchange = updateVisibilityFields;
+        updateVisibilityFields();
+
+        uploadBtn.onclick = () => {
+            if(!recordedBlob) { alert("Primero graba un vídeo."); return; }
+            let visibility = document.querySelector('input[name="visibility"]:checked').value;
+            let targetInfo = "";
+            if(visibility === 'single') {
+                let email = document.getElementById('targetEmail').value;
+                if(!email) { alert("Introduce un email válido"); return; }
+                targetInfo = email;
+            } else if(visibility === 'group') {
+                let emails = document.getElementById('groupEmails').value;
+                if(!emails) { alert("Introduce al menos un email"); return; }
+                targetInfo = emails;
+            } else {
+                targetInfo = "público mundial";
+            }
+            // Simular subida a base de datos
+            const formData = new FormData();
+            formData.append('video', recordedBlob, 'legado_' + Date.now() + '.webm');
+            formData.append('visibility', visibility);
+            formData.append('target', targetInfo);
+            // Demo: solo mostramos mensaje
+            document.getElementById('uploadStatus').innerHTML = `<i class="fas fa-spinner fa-spin"></i> Subiendo vídeo a la base de datos eterna...`;
+            setTimeout(() => {
+                document.getElementById('uploadStatus').innerHTML = `<i class="fas fa-check-circle"></i> ✅ Vídeo subido correctamente. Quedará almacenado y será visible para: ${targetInfo}. En caso de fallecimiento, tu guardián podrá gestionarlo.`;
+                uploadBtn.disabled = true;
+            }, 1500);
+        };
+
+        // FAQ acordeón simple
         document.querySelectorAll('.faq-question').forEach(q => {
-            q.addEventListener('click', () => {
-                q.parentElement.classList.toggle('active');
-            });
-        });
-        // smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const hash = this.getAttribute('href');
-                if(hash === "#" || hash === "") return;
-                const target = document.querySelector(hash);
-                if(target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+            q.addEventListener('click', function() {
+                let answer = this.nextElementSibling;
+                if(answer.style.display === 'none' || !answer.style.display) answer.style.display = 'block';
+                else answer.style.display = 'none';
             });
         });
     </script>
