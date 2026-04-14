@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Vita Eternus · Legado eterno · Roma Æternum</title>
+    <meta name="description" content="Fusión de tecnología futurista y herencia romana. Crea tu legado audiovisual, elige un guardián digital y trasciende el tiempo con Vita Eternus.">
+    <!-- Fuentes: Cinzel (romano) + Inter (moderno) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0c10;
+            color: #e0e0e0;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .logo, .gladiator-text {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Efectos romanos+futuro */
+        .roman-pattern {
+            background-image: radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+        }
+
+        /* Header con mármol y neón */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            background: rgba(10, 12, 16, 0.7);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e4c580, #b8860b, #ffd966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+        }
+        .logo span {
+            font-weight: 300;
+            background: none;
+            -webkit-background-clip: unset;
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #e0d6b0;
+            font-weight: 500;
+            transition: 0.2s;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover {
+            color: #ffd966;
+            text-shadow: 0 0 5px #ffb347;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(95deg, #b8860b, #d4af37);
+            color: #0a0c10;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4af37;
+            color: #ffd966;
+        }
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #0a0c10;
+            box-shadow: 0 0 15px #d4af37;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Hero con imagen de fondo romana+futurista */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(30,20,10,0.8)), url('https://images.pexels.com/photos/951531/pexels-photo-951531.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover fixed;
+            border-bottom: 2px solid #d4af37;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffefcf;
+            text-shadow: 0 0 20px #b8860b;
+        }
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: #e6d5a8;
+            margin: 20px 0 32px;
+            font-style: italic;
+        }
+        /* secciones */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #ffefcf;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+        }
+        .section-sub {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px;
+            color: #bcae7a;
+        }
+
+        /* Tarjetas con fotos y estilo futurista-romano */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+        }
+        .feature-card {
+            background: rgba(20, 22, 27, 0.85);
+            backdrop-filter: blur(6px);
+            border-radius: 32px;
+            padding: 32px 24px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            transition: all 0.3s;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        .feature-card i {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: #f7e5b5;
+        }
+
+        /* Sección de pasos con imágenes laterales */
+        .steps {
+            background: radial-gradient(circle at 20% 30%, #1a1510, #050505);
+        }
+        .steps-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .step {
+            background: #0f0e12;
+            border-radius: 40px;
+            padding: 30px 20px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+        }
+        .step-number {
+            background: #d4af37;
+            color: #0a0c10;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            border-radius: 60px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: 'Cinzel';
+        }
+
+        /* Galería de fotos / testimonios con imágenes reales */
+        .gallery-testimonials {
+            background: #08080c;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: #13141c;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid #d4af3740;
+            transition: transform 0.2s;
+        }
+        .testimonial-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            filter: grayscale(0.2) brightness(0.9);
+            transition: 0.3s;
+        }
+        .testimonial-card:hover .testimonial-img {
+            filter: grayscale(0) brightness(1);
+        }
+        .testimonial-content {
+            padding: 24px;
+        }
+        .testimonial-content i {
+            color: #d4af37;
+            font-size: 1.8rem;
+            opacity: 0.8;
+        }
+        .testimonial-name {
+            font-family: 'Cinzel';
+            margin-top: 12px;
+            color: #ffdfaa;
+        }
+
+        /* Planes con estilo futurista y detalles romanos */
+        .pricing {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+        .plan {
+            background: rgba(15, 17, 22, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 36px;
+            padding: 36px 28px;
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+            border: 1px solid #d4af37;
+            box-shadow: 0 20px 30px -12px black;
+            transition: all 0.2s;
+        }
+        .plan.popular {
+            border: 2px solid #ffd966;
+            transform: scale(1.02);
+            background: linear-gradient(145deg, #1c1914, #0f0e12);
+        }
+        .badge {
+            background: #d4af37;
+            color: #0a0c10;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffdfaa;
+            margin: 20px 0;
+        }
+        .plan ul {
+            text-align: left;
+            list-style: none;
+            margin: 24px 0;
+        }
+        .plan ul li {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .plan ul li i {
+            color: #d4af37;
+        }
+
+        /* Acordeón FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #11131b;
+            margin-bottom: 16px;
+            border-radius: 24px;
+            border-left: 4px solid #d4af37;
+        }
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            color: #f2e3c9;
+        }
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #bcae7a;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 24px 20px 24px;
+            max-height: 300px;
+        }
+
+        footer {
+            background: #030405;
+            border-top: 2px solid #d4af37;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .footer-col a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 28px;
+            border-top: 1px solid #2a241a;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .navbar { flex-direction: column; }
+        }
+        .glow-text {
+            text-shadow: 0 0 6px #ffb347;
+        }
+    </style>
+</head>
+<body class="roman-pattern">
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">VITA<span>ÆTERNUS</span></div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">INICIO</a></li>
+                    <li><a href="#como-funciona">VÍA ROMANA</a></li>
+                    <li><a href="#planes">PLANES</a></li>
+                    <li><a href="#memoria">TESTIMONIOS</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <a href="#planes" class="btn btn-outline">CREAR LEGADO</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>LEGADO ETERNO<br>TECNOLOGÍA Y ROMA</h1>
+                <div class="tagline"><i class="fas fa-microchip"></i> + <i class="fas fa-landmark"></i> = Tu memoria trasciende el tiempo</div>
+                <p style="max-width: 700px; margin: 0 auto 32px; color:#d6c69e;">Graba vídeos, escribe cartas, elige un Guardián Digital. Cuando partas, tu legado se activará como un mensaje desde el futuro hacia tus seres queridos.</p>
+                <div class="hero-buttons">
+                    <a href="#planes" class="btn">EMPEZAR AHORA <i class="fas fa-arrow-right"></i></a>
+                    <a href="#como-funciona" class="btn btn-outline">DESCUBRIR EL RITO</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Características con mix tecnológico+romano -->
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Archivum Futurum</h3>
+                    <p>Almacenamiento cuántico simbólico. Tus vídeos y textos protegidos en nuestra "cripta digital" con legado perpetuo.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-scroll"></i>
+                    <h3>Epistulae Aeternae</h3>
+                    <p>Redacta mensajes escritos que se entregarán como papiros digitales en el momento exacto.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>CVSTOS (Guardián)</h3>
+                    <p>Designa a tu "Custos Memoriae", la única persona que podrá activar tu testamento digital tras tu muerte.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Templum Nubis</h3>
+                    <p>Tu legado reposa en una nube inspirada en los templos romanos, con acceso solo para tu elegido.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cómo funciona + fotos de proceso -->
+        <section id="como-funciona" class="steps">
+            <div class="container">
+                <h2 class="section-title">VÍA ROMANA HACIA LA ETERNIDAD</h2>
+                <div class="steps-grid">
+                    <div class="step"><div class="step-number">I</div><h3>FVNDAMENTVM</h3><p>Elige tu suscripción (mensual, anual o eterna) y accede a tu foro privado.</p></div>
+                    <div class="step"><div class="step-number">II</div><h3>SCRĪBERE</h3><p>Crea vídeos, sube fotos y redacta cartas. Todo lo que quieras legar.</p></div>
+                    <div class="step"><div class="step-number">III</div><h3>CVSTOS</h3><p>Nombra a tu guardián de confianza (un familiar o amigo).</p></div>
+                    <div class="step"><div class="step-number">IV</div><h3>TRĀNSITVS</h3><p>Al momento de tu partida, Vita Æternus libera tu legado.</p></div>
+                </div>
+                <p style="text-align: center; margin-top: 48px; font-size: 0.9rem;"><i class="fas fa-glasses"></i> "Sic transit gloria mundi, pero tu historia permanece"</p>
+            </div>
+        </section>
+
+        <!-- Testimonios con fotografías reales (imágenes de personas) -->
+        <section id="memoria" class="gallery-testimonials">
+            <div class="container">
+                <h2 class="section-title">QVOD PERPETVVM · Voces que ya trascienden</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <img class="testimonial-img" src="https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=600" alt="mujer romana moderna">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>"Saber que mi hijo podrá recibir mis vídeos cuando sea adulto me da una paz insólita. La mezcla de futuro y tradición es única."</p>
+                            <h4 class="testimonial-name">— Livia M.</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <img class="testimonial-img" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600" alt="hombre mayor sonriendo">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>"Nombré a mi nieta como guardiana digital. Vita Eternus conecta mi pasado romano con la tecnología del mañana."</p>
+                            <h4 class="testimonial-name">— Marcus Aurelio T.</h4>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <img class="testimonial-img" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" alt="pareja abrazándose">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>"La suscripción anual me permite grabar cumpleaños y consejos. Es como construir una cápsula del tiempo con alma de emperador."</p>
+                            <h4 class="testimonial-name">— Giulia & Lucius</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planes de suscripción (misma lógica) -->
+        <section id="planes">
+            <div class="container">
+                <h2 class="section-title">ELIGE TY AETERNTAS</h2>
+                <div class="pricing">
+                    <div class="plan">
+                        <h3>MENSALIS</h3>
+                        <div class="price">$9.90 <small>/mes</small></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 10 vídeos activos</li>
+                            <li><i class="fas fa-check-circle"></i> Texto ilimitado</li>
+                            <li><i class="fas fa-check-circle"></i> 1 Custos (guardián)</li>
+                            <li><i class="fas fa-check-circle"></i> Entrega segura</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="alertDemo()">Iniciar legado</a>
+                    </div>
+                    <div class="plan popular">
+                        <div class="badge">MÁS VENERADO</div>
+                        <h3>ANNVALIS</h3>
+                        <div class="price">$99 <small>/año</small></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> 30 vídeos + 4K</li>
+                            <li><i class="fas fa-check-circle"></i> Texto + borradores</li>
+                            <li><i class="fas fa-check-circle"></i> 2 guardianes</li>
+                            <li><i class="fas fa-check-circle"></i> Activación prioritaria</li>
+                            <li><i class="fas fa-check-circle"></i> Álbum fotográfico eterno</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="alertDemo()">Elegir anual</a>
+                    </div>
+                    <div class="plan">
+                        <h3>AETERNVS</h3>
+                        <div class="price">$299 <small>único</small></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Capacidad ilimitada</li>
+                            <li><i class="fas fa-check-circle"></i> Sin cuotas perpetuas</li>
+                            <li><i class="fas fa-check-circle"></i> 3 guardianes</li>
+                            <li><i class="fas fa-check-circle"></i> Certificado SPQR digital</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline" onclick="alertDemo()">Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ (idéntica lógica) -->
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">SAPIENTIA · Preguntas frecuentes</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">¿Cómo se activa mi legado tras mi muerte? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">El guardián que hayas designado deberá enviarnos un certificado de defunción verificado. Nuestro sistema validará la identidad y liberará automáticamente todo tu contenido a los destinatarios que configuraste.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Puedo cambiar de guardián? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Sí, en cualquier momento desde tu área privada. Solo tú tienes el poder de modificar a tu Custos Memoriae.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Qué tecnología protege mis vídeos? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">Usamos cifrado de grado militar y almacenamiento descentralizado con respaldo en "cripta de datos". Nadie accede hasta la activación póstuma.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 40px 0 80px;">
+            <div class="container" style="text-align: center; background: linear-gradient(135deg, #101016, #19170e); border-radius: 60px; padding: 48px 20px;">
+                <h2 style="font-family: 'Cinzel';">FVTVRVM ROMA · El legado te espera</h2>
+                <p style="margin: 20px auto; max-width: 500px; color:#cbbd8c;">Únete a la revolución eterna. Tus mensajes vivirán por siempre en el cruce entre el pasado imperial y la inteligencia del futuro.</p>
+                <a href="#planes" class="btn" style="background: #d4af37; color:#000;">COMENZAR AHORA</a>
+                <p style="margin-top: 32px;"><i class="fas fa-envelope"></i> contacto@vita-eternus.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="font-size: 1.8rem;">VITA ÆTERNUS</div>
+                    <p>Legado digital inspirado en la grandeza de Roma y la tecnología del futuro.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>NORMAS</h4>
+                    <p><a href="#">Privacidad del legado</a><br><a href="#">Términos del Custos</a><br><a href="#">Certificados SPQR</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>REDES</h4>
+                    <p><i class="fab fa-twitter"></i> <a href="#">@vita_aeternus</a><br><i class="fab fa-instagram"></i> <a href="#">vita.eternus.rome</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                © MMXXV Vita Æternus — In memoriam futurum. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function alertDemo() {
+            alert("🔮 Vita Æternus: Tu legado romano-digital aguarda. Próximamente podrás suscribirte.");
+        }
+        // acordeón FAQ
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('active');
+            });
+        });
+        // smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const hash = this.getAttribute('href');
+                if(hash === "#" || hash === "") return;
+                const target = document.querySelector(hash);
+                if(target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
